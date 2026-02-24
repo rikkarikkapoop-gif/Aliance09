@@ -1,59 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Quiz</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <title>Game</title>
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Interactive Quiz!</h1>
-        <p>Test your knowledge with engaging questions.</p>
-    </header>
-    <main>
-        <section class="quiz-container">
-            <div class="question">
-                <p id="question-text">What is the capital of France?</p>
-                <div class="options">
-                    <button class="option" data-correct="false">London</button>
-                    <button class="option" data-correct="true">Paris</button>
-                    <button class="option" data-correct="false">Berlin</button>
-                </div>
-                <div class="feedback"></div>
-            </div>
-            <button id="next-question">Next Question</button>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 Interactive Quiz. All rights reserved.</p>
-    </footer>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
-        header { text-align: center; margin: 20px; }
-        .quiz-container { margin: 0 auto; padding: 20px; width: 80%; background-color: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .options { display: flex; flex-direction: column; gap: 10px; }
-        .option { padding: 10px; background-color: #007BFF; color: white; border: none; cursor: pointer; transition: background 0.3s; }
-        .option:hover { background-color: #0056b3; }
-        .feedback { margin-top: 10px; height: 20px; }
-        .correct { color: green; }
-        .wrong { color: red; }
-    </style>
+    <h1>Welcome to the Game!</h1>
     <script>
-        const options = document.querySelectorAll('.option');
-        const feedback = document.querySelector('.feedback');
-        options.forEach(option => {
-            option.addEventListener('click', () => {
-                if (option.dataset.correct === 'true') {
-                    feedback.textContent = 'Correct!';
-                    feedback.className = 'feedback correct';
-                } else {
-                    feedback.textContent = 'Wrong!';
-                    feedback.className = 'feedback wrong';
-                }
-            });
-        });
+        // Play correct answer audio
+        function playCorrectAudio() {
+            const audio = new Audio('correct.mp3');
+            audio.play();
+        }
+
+        // Play wrong answer audio
+        function playWrongAudio() {
+            const audio = new Audio('wrong.mp3');
+            audio.play();
+        }
     </script>
+
+    <!-- Example usage: Call these functions when an answer is selected -->
 </body>
 </html>
